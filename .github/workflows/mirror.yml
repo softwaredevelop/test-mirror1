@@ -38,6 +38,7 @@ jobs:
           mkdir mirror && cd mirror
           git clone --bare "https://github.com/$GITHUB_REPOSITORY" .
           git push --mirror "https://$GITLAB_USER:$GITLAB_TOKEN@gitlab.com/$GITLAB_REPOSITORY.git"
+          rm -fr mirror
         env:
           GITLAB_REPOSITORY: ${{ secrets.GITLAB_REPOSITORY }}
           GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
